@@ -176,6 +176,18 @@ play.db.pool=bonecp
 
 The full range of configuration options for connection pools can be found by inspecting the `play.db.prototype` property in Play's JDBC [`reference.conf`](resources/confs/play-jdbc/reference.conf).
 
+Example JDBC and HikariCP configuration in application.conf
+
+```
+#db config
+db.default.driver=com.mysql.jdbc.Driver
+db.default.url="mysql://user1:pwd1@192.168.0.55:3306/testdb"
+#keeping pool size small during development
+db.default.hikaricp.maximumPoolSize = 2
+db.default.hikaricp.connectionTimeout = 5 minutes
+```
+
+
 ## Testing
 
 For information on testing with databases, including how to setup in-memory databases and, see [[Testing With Databases|ScalaTestingWithDatabases]].
